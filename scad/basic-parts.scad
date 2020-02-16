@@ -22,14 +22,14 @@ module dishWithGroovedHole(dish_height, dish_radius)
     }
 }
 
-module mounter(inner_width,
-               inner_height,
-               inner_depth,
-               split_width,
-               corner_radius,
-               outer_radius,
-               hole_pos_y,
-               hole_pos_z)
+module pipeMounter(inner_width,
+                   inner_height,
+                   inner_depth,
+                   split_width,
+                   corner_radius,
+                   outer_radius,
+                   hole_pos_y,
+                   hole_pos_z)
 {
     union_width = inner_width + split_width;
     difference()
@@ -76,6 +76,27 @@ module mounter(inner_width,
     }
 }
 
-// TODO module grabber
-// TODO module mounter rectangular
-// TODO module mounter cylinder
+module caneGrabber(joint_width,
+                   joint_depth,
+                   joint_height,
+                   cane_radius,
+                   cane_holder_thin)
+{
+    // Cane joint to mounter
+    translate([ -joint_width / 2 - union_width / 2 + outer_radius, 0, 0 ])
+        cube([ joint_width - inner_width / 2, joint_depth, joint_height ],
+             center = true);
+    // Cane grabber
+    difference()
+    {
+        translate([ -joint_width - cane_radius - cane_holder_thin / 2, 0, 0 ])
+            rotate_extrude(center = true)
+                translate([ cane_radius + cane_holder_thin / 2, 0, 0 ]) square(
+                    size = [ cane_holder_thin, joint_height ], center = true);
+        translate(
+            [ -joint_width - cane_radius - cane_holder_thin / 2 - 10, 0, 0 ])
+            cube([ 20, 20, joint_height ], center = true);
+    }
+}
+// TODO module mounter rectangular// TODO module mounter cylinder
+

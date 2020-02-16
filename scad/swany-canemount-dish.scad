@@ -12,7 +12,7 @@ corner_radius = 3.5;
 outer_radius = 3;
 hole_pos_y = 5.2;
 hole_pos_z = 4;
-mounter(inner_width,
+pipeMounter(inner_width,
         inner_height,
         inner_depth,
         split_width,
