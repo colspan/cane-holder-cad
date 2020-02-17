@@ -1,6 +1,5 @@
-include <basic-parts.scad>
-
-$fn = 70;
+include <common/basic-parts.scad>
+$fn = 100;
 
 // Mounter
 inner_radius = 13.5;

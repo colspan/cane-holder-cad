@@ -1,6 +1,5 @@
+include <common/basic-parts.scad>
 $fn = 100;
-
-include <basic-parts.scad>
 
 // Mounter
 inner_width = 21.5;
