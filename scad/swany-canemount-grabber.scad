@@ -34,5 +34,3 @@ translate([ -joint_width - inner_width / 2 - split_width+0.5, 0, - outer_radius]
     caneGrabber(
         joint_width, joint_depth, joint_height, cane_radius, cane_holder_thin);
 }
-
-#cube([inner_width,inner_depth,inner_height+outer_radius/2], center=true);
