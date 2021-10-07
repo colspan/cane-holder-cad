@@ -38,12 +38,12 @@ module cubicPipeMounter(inner_width,
     union_width = inner_width + split_width;
     difference()
     {
-        minkowski()
+        hull() minkowski()
         {
             union()
             {
                 roundedCube(
-                    union_width, inner_depth, inner_height, corner_radius);
+                    union_width, inner_depth, inner_height, outer_radius);
                 for (s_y_f = [ -1, 1 ]) {
                     // Screw mounter block
                     s_y_pos = s_y_f * inner_depth / 2;
@@ -51,7 +51,7 @@ module cubicPipeMounter(inner_width,
                         [
                             union_width * 0.6,
                             5.2 + hole_pos_y,
-                            inner_height - corner_radius * 2
+                            inner_height - outer_radius * 2
                         ],
                         center = true);
                 }
@@ -146,8 +146,8 @@ module caneGrabber(joint_width,
                    cane_holder_thin)
 {
     // Cane joint to mounter
-    translate([ 0, -joint_depth / 2, -joint_height / 2 ])
-        cube([ joint_width, joint_depth, joint_height ]);
+    translate([ joint_width / 2, 0, 0 ])
+        roundedCube(joint_width, joint_depth, joint_height, 4);
     // Cane grabber
     difference()
     {

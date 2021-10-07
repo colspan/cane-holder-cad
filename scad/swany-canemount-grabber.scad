@@ -3,8 +3,8 @@ $fn = 100;
 
 // Mounter
 inner_width = 17;
-inner_height = 14;
 inner_depth = 14;
+inner_height = 14;
 split_width = 1;
 corner_radius = 2;
 outer_radius = 3;
@@ -26,11 +26,13 @@ cubicPipeMounter(inner_width,
 
 joint_width = 28;
 joint_depth = 12;
-joint_height = inner_depth;
+joint_height = inner_height;
 cane_radius = 22 / 2 + 0.5;
 cane_holder_thin = 3;
-translate([ -joint_width - inner_width / 2 - split_width, 0, -outer_radius ])
+translate([ -joint_width - inner_width / 2 - split_width+0.5, 0, - outer_radius])
 {
     caneGrabber(
         joint_width, joint_depth, joint_height, cane_radius, cane_holder_thin);
 }
+
+#cube([inner_width,inner_depth,inner_height+outer_radius/2], center=true);

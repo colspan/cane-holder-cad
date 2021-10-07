@@ -4,7 +4,7 @@ $fn = 100;
 // Mounter
 inner_width = 21.5;
 inner_depth = 14;
-inner_height = 19;
+inner_height = 14;
 split_width = 1;
 corner_radius = 3.5;
 outer_radius = 3;
@@ -27,7 +27,7 @@ cubicPipeMounter(inner_width,
 dish_height = 14;
 dish_radius = 30;
 dish_center = dish_radius + (inner_width + split_width) / 2 + outer_radius;
-translate([ -dish_center, 0, -outer_radius ])
+translate([ -dish_center+1.5, 0, dish_height / 2 - inner_height / 2 - outer_radius ])
 {
     dishWithGroovedHole(dish_height, dish_radius);
 }
