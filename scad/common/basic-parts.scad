@@ -60,8 +60,8 @@ module cubicPipeMounter(inner_width,
         }
         // Pipe hole
         roundedCube(union_width,
-                    inner_depth + 2 * outer_radius,
-                    inner_height,
+                    inner_depth,
+                    inner_height + outer_radius*2,
                     corner_radius);
         // Screw holes
         for (h_pos_z = [ -hole_pos_z, hole_pos_z ]) {
@@ -99,16 +99,18 @@ module cylinderPipeMounter(inner_radius,
             union()
             {
                 cylinder(r = inner_radius, h = inner_height, center = true);
-                for (s_y_f = [ -1, 1 ]) {
-                    // Screw mounter block
-                    s_y_pos = s_y_f * inner_radius;
-                    translate([ 0, s_y_pos, 0 ]) cube(
-                        [ union_width * 0.6, 5.2 + hole_pos_y, inner_height ],
-                        center = true);
+                hull() {
+                    for (s_y_f = [ -1, 1 ]) {
+                        // Screw mounter block
+                        s_y_pos = s_y_f * inner_radius;
+                        translate([ 0, s_y_pos, 0 ]) cube(
+                            [ union_width * 0.6, 5.2 + hole_pos_y, inner_height ],
+                            center = true);
+                    }
+                    translate([ -inner_radius / 2, 0, 0 ])
+                        cube([ inner_radius, inner_radius * 2, inner_height ],
+                            center = true);
                 }
-                translate([ -inner_radius / 2, 0, 0 ])
-                    cube([ inner_radius, inner_radius * 2, inner_height ],
-                         center = true);
             }
             sphere(r = outer_radius);
         }
