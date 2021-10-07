@@ -1,5 +1,5 @@
 DST_DIR=stl
-BUILD_CMD=sudo docker run -u $(id -u):$(id -g) --rm -it -v $(shell pwd):/work -w /work -u $(shell id -u):$(shell id -g) openscad openscad
+BUILD_CMD=sudo docker run -u $(id -u):$(id -g) --rm -v $(shell pwd):/work -w /work -u $(shell id -u):$(shell id -g) openscad openscad
 
 .PHONY: all clean
 default: all
