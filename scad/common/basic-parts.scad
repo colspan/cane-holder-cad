@@ -155,7 +155,7 @@ module caneGrabber(joint_width,
             translate([ cane_radius + cane_holder_thin / 2, 0, 0 ]) square(
                 size = [ cane_holder_thin, joint_height ], center = true);
         translate([ -cane_radius - 10, 0, 0 ])
-            cube([ 20, 20, joint_height ], center = true);
+            cube([ 20, cane_radius*2-3, joint_height ], center = true);
     }
 }
 
