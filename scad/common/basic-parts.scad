@@ -42,7 +42,7 @@ module cubicPipeMounter(inner_width,
         {
             union()
             {
-                roundedCube(
+                sideRoundedCube(
                     union_width, inner_depth, inner_height, outer_radius);
                 for (s_y_f = [ -1, 1 ]) {
                     // Screw mounter block
@@ -59,7 +59,7 @@ module cubicPipeMounter(inner_width,
             sphere(r = outer_radius);
         }
         // Pipe hole
-        roundedCube(union_width,
+        sideRoundedCube(union_width,
                     inner_depth,
                     inner_height + outer_radius*2,
                     corner_radius);
@@ -147,17 +147,16 @@ module caneGrabber(joint_width,
 {
     // Cane joint to mounter
     translate([ joint_width / 2, 0, 0 ])
-        roundedCube(joint_width, joint_depth, joint_height, 4);
+        rotate([0, 90, 0]) sideRoundedCube(joint_height, joint_depth, joint_width, 3);
     // Cane grabber
     difference()
     {
-        translate([ -cane_radius, 0, 0 ]) rotate_extrude(center = true)
-            translate([ cane_radius + cane_holder_thin / 2, 0, 0 ]) square(
-                size = [ cane_holder_thin, joint_height ], center = true);
+        translate([-cane_radius, 0, 0]) difference()
+        {
+            roundedCylinder(r = cane_radius + cane_holder_thin, h = joint_height, center = true, corner_radius=corner_radius*2);
+            cylinder(r = cane_radius, h = joint_height+1, center = true);
+        }
         translate([ -cane_radius - 10, 0, 0 ])
-            cube([ 20, cane_radius*2-3, joint_height ], center = true);
+            cube([ 20, cane_radius*2-3, joint_height+1 ], center = true);
     }
 }
-
-
-
