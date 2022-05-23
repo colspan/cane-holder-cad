@@ -32,5 +32,5 @@ cane_holder_thin = 3;
 translate([ -joint_width - inner_width / 2 - split_width+0.5, 0, - outer_radius])
 {
     caneGrabber(
-        joint_width, joint_depth, joint_height, cane_radius, cane_holder_thin);
+        joint_width, joint_depth, joint_height, cane_radius, cane_holder_thin, corner_radius);
 }

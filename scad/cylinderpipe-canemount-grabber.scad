@@ -5,6 +5,7 @@ $fn = 100;
 inner_radius = 13.5;
 inner_height = 15;
 split_width = 0.3;
+corner_radius = 2;
 outer_radius = 3;
 hole_pos_y = 4.5;
 hole_pos_z = 6;
@@ -20,14 +21,14 @@ translate([ 0, 0, 0 ]) cylinderPipeMounter(inner_radius,
                                            hole_outer_radius);
 
 joint_width = 20;
-joint_depth = 17.5;
+joint_depth = 14.5;
 joint_height = inner_height;
 cane_radius = 22 / 2 + 0.5;
 cane_holder_thin = 3;
 translate([ -joint_width - inner_radius, 0, -outer_radius ])
 {
     caneGrabber(
-        joint_width, joint_depth, joint_height, cane_radius, cane_holder_thin);
+        joint_width, joint_depth, joint_height, cane_radius, cane_holder_thin, corner_radius);
 }
 
 

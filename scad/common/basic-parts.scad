@@ -143,7 +143,8 @@ module caneGrabber(joint_width,
                    joint_depth,
                    joint_height,
                    cane_radius,
-                   cane_holder_thin)
+                   cane_holder_thin,
+                   corner_radius)
 {
     // Cane joint to mounter
     translate([ joint_width / 2, 0, 0 ])
