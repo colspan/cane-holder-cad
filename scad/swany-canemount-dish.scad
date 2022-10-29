@@ -3,7 +3,7 @@ $fn = 100;
 
 // Mounter
 inner_width = 21.5;
-inner_depth = 14;
+inner_depth = 18.5;
 inner_height = 14;
 split_width = 1;
 corner_radius = 3.5;

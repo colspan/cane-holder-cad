@@ -2,8 +2,8 @@ include <common/basic-parts.scad>
 $fn = 100;
 
 // Mounter
-inner_width = 15.1;
-inner_depth = 23.5;
+inner_width = 14.8;
+inner_depth = 23.9;
 inner_height = 14;
 split_width = 1;
 corner_radius = 2;
@@ -27,8 +27,8 @@ cubicPipeMounter(inner_width,
 joint_width = 28;
 joint_depth = 12;
 joint_height = inner_height;
-cane_radius = 22 / 2 + 0.5;
-// cane_radius = 19 / 2 + 0.5;
+// cane_radius = 22 / 2 + 0.5;
+cane_radius = 19 / 2 + 0.5;
 cane_holder_thin = 3;
 translate([ -joint_width - inner_width / 2 - split_width+0.5, 0, - outer_radius])
 {
